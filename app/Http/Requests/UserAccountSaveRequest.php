@@ -28,7 +28,7 @@ class UserAccountSaveRequest extends FormRequest
                 new EmailNotTaken(),
             ],
             'name' => "required|string|min:5",
-            'password' => "sometimes|required|string|min:5"
+            'password' => "nullable|required|string|min:5"
         ];
     }
 }
