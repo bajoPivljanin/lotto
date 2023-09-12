@@ -38,7 +38,10 @@
         @endif
         <h1>Moje kartice</h1>
         @foreach (Auth::user()->cards as $credit_card)
-            <p>{{$credit_card->card_number}} - {{$credit_card->cvv}} - {{$credit_card->expiry}}</p>
+            <div class="d-flex">
+                <p>{{$credit_card->card_number}} - {{$credit_card->cvv}} - {{$credit_card->expiry}}</p>
+                <a href="{{route("cards.delete",['card'=>$credit_card->id])}}" class="btn btn-danger ml-2">Delete</a>
+            </div>
         @endforeach
         <div>
             <label for="card_number" class="form-label">Card number</label>
