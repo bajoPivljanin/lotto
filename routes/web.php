@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/',"pages.home");
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware("auth")->group(function(){
+    Route::controller(ProfileController::class)->prefix("/profile")->group(function(){
+        Route::view('/',"pages.profile");
+        Route::post("/save","save")->name("profile.save");
+    });
+});
+Auth::routes();
