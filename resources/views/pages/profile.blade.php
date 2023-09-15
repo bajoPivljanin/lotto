@@ -11,6 +11,11 @@
             </div>
         @endif
 
+        <div class="mb-2"> 
+            <p>Stanje kredita:{{auth()->user()->credits ?? 0}}</p>
+            <a class="btn btn-outline-primary" href="{{route("profile.add_credits")}}">Add credits</a>
+        </div>
+
         <h1>Moj nalog</h1>
         <div>
             <label for="email" class="form-label">Email</label>

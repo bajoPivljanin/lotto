@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CreditCardsController;
+use App\Http\Controllers\CreditsController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,11 +22,15 @@ Route::view('/',"pages.home");
 Route::middleware("auth")->group(function(){
     Route::controller(ProfileController::class)->prefix("/profile")->group(function(){
         Route::view('/',"pages.profile");
+        Route::view('/add-credits', 'pages.add_credits')->name('profile.add_credits');
         Route::post("/save","save")->name("profile.save");
     });
     Route::controller(CreditCardsController::class)->prefix("/credit-cards")->group(function(){
         Route::post("/save","save")->name("cards.save");
         Route::get("/delete/{card}","delete")->name("cards.delete");
+    });
+    Route::controller(CreditsController::class)->prefix("credits")->group(function(){
+        Route::post("/add","add")->name("credits.add");
     });
 });
 Auth::routes();
