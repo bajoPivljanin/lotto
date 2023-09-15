@@ -12,7 +12,7 @@
         @endif
 
         <div class="mb-2"> 
-            <p>Stanje kredita:{{auth()->user()->credits ?? 0}}</p>
+            <p>Stanje kredita: {{auth()->user()->credits ?? 0}}</p>
             <a class="btn btn-outline-primary" href="{{route("profile.add_credits")}}">Add credits</a>
         </div>
 
