@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreditCardsController;
 use App\Http\Controllers\CreditsController;
+use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::view('/',"pages.home");
 
 Route::middleware("auth")->group(function(){
+
+    Route::view("/loto","pages.loto")->name('loto.index');
+
     Route::controller(ProfileController::class)->prefix("/profile")->group(function(){
         Route::view('/',"pages.profile");
         Route::view('/add-credits', 'pages.add_credits')->name('profile.add_credits');
@@ -31,6 +35,9 @@ Route::middleware("auth")->group(function(){
     });
     Route::controller(CreditsController::class)->prefix("credits")->group(function(){
         Route::post("/add","add")->name("credits.add");
+    });
+    Route::controller(TicketsController::class)->prefix("loto")->group(function(){
+        Route::post("/buy","buy")->name("loto.buy");
     });
 });
 Auth::routes();
