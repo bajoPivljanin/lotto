@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TicketPurchaseRequest;
 use App\Models\Tickets;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use PHPUnit\Framework\Attributes\Ticket;
 
 class TicketsController extends Controller
 {

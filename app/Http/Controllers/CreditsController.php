@@ -4,13 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddCreditsRequest;
 use App\Models\Transactions;
-use App\Models\User;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Contract\Auth\Authenticatable;
-use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\HttpFoundation\RedirectResponse as HttpFoundationRedirectResponse;
+use Illuminate\Http\RedirectResponse;
 
 class CreditsController extends Controller
 {
