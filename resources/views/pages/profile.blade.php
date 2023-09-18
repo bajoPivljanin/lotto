@@ -10,14 +10,14 @@
                 @endforeach
             </div>
         @endif
-        @if (auth()->user()->cards()->count() > 0)    
-        <div class="mb-2"> 
-            <p>Stanje kredita: {{auth()->user()->credits ?? 0}}</p>
+        @if (auth()->user()->cards()->count() > 0)
+        <div class="mb-2">
+            <p>Credit status: {{auth()->user()->credits ?? 0}}</p>
             <a class="btn btn-outline-primary" href="{{route("profile.add_credits")}}">Add credits</a>
         </div>
         @endif
 
-        <h1>Moj nalog</h1>
+        <h1>My account</h1>
         <div>
             <label for="email" class="form-label">Email</label>
             <input class="form-control" name="email" type="text" id="email" value="{{Auth::user()->email}}">
@@ -42,7 +42,7 @@
                 @endforeach
             </div>
         @endif
-        <h1>Moje kartice</h1>
+        <h1>My cards</h1>
         @foreach (Auth::user()->cards as $credit_card)
             <div class="d-flex">
                 <p>{{$credit_card->card_number}} - {{$credit_card->cvv}} - {{$credit_card->expiry}}</p>
@@ -61,7 +61,7 @@
             <label for="expiry" class="form-label">Expiry month</label>
             <select class=" form-select" name="expiry_month" id="">
                 @for($i = 1;$i <= 12; $i++){
-                      <option>{{$i}}</option>  
+                      <option>{{$i}}</option>
                 }
                 @endfor
             </select>
@@ -70,13 +70,10 @@
             <label for="expiry" class="form-label">Expiry year</label>
             <select class="form-select" name="expiry_year" id="">
                 @for($i = 0;$i <= 5; $i++){
-                    <option>{{date('Y')+$i}}</option>  
+                    <option>{{date('Y')+$i}}</option>
               }
               @endfor
             </select>
-        </div>
-            
-
         </div>
         <button class="btn btn-outline-primary mt-3">Enter</button>
     </form>

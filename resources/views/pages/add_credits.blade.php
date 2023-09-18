@@ -15,13 +15,13 @@
         </div>
 
         <div class="mb-2">
-            <label class="mb-2" for="credits">Iznos kredita</label>
+            <label class="mb-2" for="credits">Amount of credits</label>
             <select name="credits" id="credits" class="form-select">
                 @for($i = 1; $i <= 10; $i++)
                     @php
                         $credits_amount = $i * env('CREDITS_QUANTIFIER');
                     @endphp
-                    <option value="{{$credits_amount}}">{{$credits_amount}} kredita (cena:{{($credits_amount)*env('CREDITS_VALUE_RSD')}}rsd)</option>
+                    <option value="{{$credits_amount}}">{{$credits_amount}} credits (price:{{($credits_amount)*env('CREDITS_VALUE_RSD')}}rsd)</option>
                 @endfor
             </select>
         </div>
