@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/',"pages.home");
 
-Route::middleware("auth")->group(function(){
+    Route::middleware("auth")->group(function(){
 
     Route::view("/loto","pages.loto")->name('loto.index');
 

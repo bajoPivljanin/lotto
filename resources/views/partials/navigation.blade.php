@@ -14,9 +14,9 @@
           </li>
           <li class="nav-item">
             @if(Illuminate\Support\Facades\Auth::check())
-              <a class="nav-link" href="/profile">Moj nalog</a> 
+              <a class="nav-link" href="/profile">My account</a>
             @else
-              <a class="nav-link" href="/login">Moj nalog</a>
+              <a class="nav-link" href="/login">My account</a>
             @endif
           </li>
         </ul>
