@@ -7,6 +7,7 @@
 
     <form id="rndNumbers" class="container mb-5 mt-3" action="{{route("loto.buy")}}" method="post">
         @include('partials.errors')
+        <p class="text-primary">{{\Illuminate\Support\Facades\Session::get('message')}}</p>
         {{csrf_field()}}
         <div class="d-flex text-center">
             @for($i = 0; $i < 7;$i++)
