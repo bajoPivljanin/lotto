@@ -5,11 +5,12 @@
         <button class="btn btn-danger" onclick="getRandomNumbers()">Generate random combination</button>
     </div>
 
-    <form id="rndNumbers" class="container mb-5 mt-3" action="{{route("loto.buy")}}" method="post"> 
-        {{csrf_field()}}        
+    <form id="rndNumbers" class="container mb-5 mt-3" action="{{route("loto.buy")}}" method="post">
+        @include('partials.errors')
+        {{csrf_field()}}
         <div class="d-flex text-center">
             @for($i = 0; $i < 7;$i++)
-                <input style="width: 50px;" class="form-label pl-2" type="number" name="numbers[]" value="{{rand(0,100)}}"> 
+                <input style="width: 50px;" class="form-label pl-2" type="number" name="numbers[]" value="{{rand(0,100)}}">
             @endfor
         </div>
         <button class="btn btn-outline-primary mt-2">Buy loto ticket</button>

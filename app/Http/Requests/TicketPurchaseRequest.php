@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\SufficientCredits;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TicketPurchaseRequest extends FormRequest
@@ -22,7 +23,7 @@ class TicketPurchaseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'numbers' => 'size:7'
+            'numbers' => ['size:7',new SufficientCredits()]
         ];
     }
 }
