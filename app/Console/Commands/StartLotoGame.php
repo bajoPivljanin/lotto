@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\LottoGames;
+use App\Models\Tickets;
 use Illuminate\Console\Command;
 
 class StartLotoGame extends Command
@@ -35,8 +36,11 @@ class StartLotoGame extends Command
             $lotoNumbers[] = $randomNumber;
         }
         LottoGames::create([
-            'numbers' => implode(',',$lotoNumbers)
+            'numbers' => implode(',',$lotoNumbers),
+            'award_fund' => Tickets::getForPast7Days()
         ]);
+
         $this->output->info("Numbers that were picked: ".implode(',',$lotoNumbers));
+
     }
 }
