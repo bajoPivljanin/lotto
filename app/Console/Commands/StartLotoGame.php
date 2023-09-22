@@ -37,7 +37,7 @@ class StartLotoGame extends Command
             $lotoNumbers[] = $randomNumber;
         }
 
-        $award = Tickets::getForPast7Days();
+        $award = Tickets::getTotalPriceForPast7Days();
         $houseCut = $award * env('HOUSE_CUT');
         $award = $award - $houseCut;
 

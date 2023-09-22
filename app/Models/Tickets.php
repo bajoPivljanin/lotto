@@ -13,7 +13,7 @@ class Tickets extends Model
         "numbers",
         "price"
     ];
-    public static function getForPast7Days(): ?int
+    public static function getTotalPriceForPast7Days(): ?int
     {
         return self::whereDate(
             'created_at','>',Carbon::now()->subDays(7)
