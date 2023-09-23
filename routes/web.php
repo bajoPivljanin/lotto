@@ -20,15 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/',"pages.home");
 
-    Route::middleware("auth")->group(function(){
+Route::middleware("auth")->group(function(){
 
     Route::view("/loto","pages.loto")->name('loto.index');
 
-    Route::controller(ProfileController::class)->prefix("/profile")->group(function(){
-        Route::view('/',"pages.profile");
-        Route::view('/add-credits', 'pages.add_credits')->name('profile.add_credits');
-        Route::post("/save","save")->name("profile.save");
-    });
     Route::controller(CreditCardsController::class)->prefix("/credit-cards")->group(function(){
         Route::post("/save","save")->name("cards.save");
         Route::get("/delete/{card}","delete")->name("cards.delete");
@@ -38,6 +33,12 @@ Route::view('/',"pages.home");
     });
     Route::controller(TicketsController::class)->prefix("loto")->group(function(){
         Route::post("/buy","buy")->name("loto.buy");
+    });
+
+    Route::controller(ProfileController::class)->prefix("/profile")->group(function(){
+        Route::view('/',"pages.profile")->name('profile.index');
+        Route::view('/add-credits', 'pages.add_credits')->name('profile.add_credits');
+        Route::post("/save","save")->name("profile.save");
     });
 });
 Auth::routes();

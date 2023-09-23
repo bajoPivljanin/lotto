@@ -21,7 +21,7 @@ class TicketsController extends Controller
         $user->credits -= env('TICKET_PRICE_CREDITS');
         $user->save();
         return redirect()->back()->with([
-            'message' => 'You have succesfully bought ticket for loto. Your credit status is: '.$user->credits
+            'message' => 'You have successfully bought a lotto ticket. Your credit status is: '.$user->credits
         ]);
     }
 }

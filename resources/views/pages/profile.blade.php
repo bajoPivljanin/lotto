@@ -17,7 +17,7 @@
         </div>
         @endif
 
-        <h1>My account</h1>
+        <h1 class="mt-5">My account</h1>
         <div>
             <label for="email" class="form-label">Email</label>
             <input class="form-control" name="email" type="text" id="email" value="{{Auth::user()->email}}">
@@ -42,11 +42,11 @@
                 @endforeach
             </div>
         @endif
-        <h1>My cards</h1>
+        <h1 class="mt-5">My cards</h1>
         @foreach (Auth::user()->cards as $credit_card)
-            <div class="d-flex">
-                <p>{{$credit_card->card_number}} - {{$credit_card->cvv}} - {{$credit_card->expiry}}</p>
-                <a href="{{route("cards.delete",['card'=>$credit_card->id])}}" class="btn btn-danger ml-2">Delete</a>
+            <div class="d-flex gap-3 align-items-center justify-content-between px-5 py-3 border-bottom border-top mb-5">
+                <p class="m-0">{{$credit_card->card_number}} - {{$credit_card->cvv}} - {{$credit_card->expiry}}</p>
+                <a href="{{route("cards.delete",['card'=>$credit_card->id])}}" class="btn btn-danger m-0">Delete</a>
             </div>
         @endforeach
         <div>
@@ -75,6 +75,6 @@
               @endfor
             </select>
         </div>
-        <button class="btn btn-outline-primary mt-3">Enter</button>
+        <button class="btn btn-outline-primary mt-3 mb-5">Add Card</button>
     </form>
 @endsection
